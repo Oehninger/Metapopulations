@@ -46,7 +46,7 @@ def generar_imagen(valor_h, indice):
     plt.yticks(fontsize=6)
     plt.legend(loc='best',fontsize=7)
     plt.ylabel('Fraction of inhabitated patches',fontsize=7)
-    plt.xlabel('Time',fontsize=7)
+    plt.xlabel('Years',fontsize=7)
     plt.grid()
 
     # Save the image
