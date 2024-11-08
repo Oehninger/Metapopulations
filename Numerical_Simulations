@@ -66,18 +66,17 @@ def generar_imagen(valor_h, indice):
         tck = sp.interpolate.splrep(x_points, y_points)
         return sp.interpolate.splev(x, tck)
 
-    def p1star(t):
-       return c1(t)*p1s(t)
+        def p1star(t):
+       return (c0(t)+c1(t))*p1s(t)
     ##Approximation of R1*
     #R1*=(average(m2)-average(m1))/(average(c2)-average(c1))+average(c2p1*)/(average(c2)-average(c1))
     x = t2
     y1 = p1star(t2)
     I1 = integrate.simpson(y1, x=t2)
     M1star=I1/900
-    R1star=(m[1]-m[0])/(c[1]-c[0])+M1star/(c[1]-c[0])
-    print(f'imagen_h{indice}.R1*=',R1star)
+    R1star=(m[1])/(c[1])+M1star/(c[1])
+    print('R1,1*=',R1star)
     
-
 # Cicle to generate the images dependig on h
 for i, valor_h in enumerate(h):
     generar_imagen(valor_h, i)
