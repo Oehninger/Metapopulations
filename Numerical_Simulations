@@ -39,14 +39,14 @@ def generar_imagen(valor_h, indice):
     t1=np.linspace(0,100,1001)
     
     # Generate the plot
-    plt.figure(figsize=(3.5,3.5))
+    plt.figure(figsize=(4,4))
     plt.plot(t1, sol2[0:1001, 0], 'b', label=r"$p_1(t)$")
     plt.plot(t1, sol2[0:1001, 1], 'g', label=r"$p_2(t)$")
     plt.xticks(fontsize=6)
     plt.yticks(fontsize=6)
-    plt.legend(loc='best',fontsize=7)
-    plt.ylabel('Fraction of inhabitated patches',fontsize=7)
-    plt.xlabel('Years',fontsize=7)
+    plt.legend(loc='best',fontsize=9)
+    plt.ylabel('Fraction of inhabitated patches',fontsize=9)
+    plt.xlabel('Years',fontsize=9)
     plt.grid()
 
     # Save the image
@@ -66,7 +66,7 @@ def generar_imagen(valor_h, indice):
         tck = sp.interpolate.splrep(x_points, y_points)
         return sp.interpolate.splev(x, tck)
 
-        def p1star(t):
+    def p1star(t):
        return (c0(t)+c1(t))*p1s(t)
     ##Approximation of R1*
     #R1*=(average(m2)-average(m1))/(average(c2)-average(c1))+average(c2p1*)/(average(c2)-average(c1))
@@ -77,6 +77,7 @@ def generar_imagen(valor_h, indice):
     R1star=(m[1])/(c[1])+M1star/(c[1])
     print('R1,1*=',R1star)
     
+
 # Cicle to generate the images dependig on h
 for i, valor_h in enumerate(h):
     generar_imagen(valor_h, i)
